@@ -4,22 +4,22 @@ const app = Vue.createApp({
             number: 0
         };
     },
-    watch: {
-        number(value) {
-            if (value > 37) {
-                setTimeout(() => {
-                    this.number = 0;
-                }, 5000);
-            }
-        }
-    },
     computed: {
         result() {
-            if (this.number <= 37) {
+            if (this.number < 37) {
                 return 'Not there yet';
+            } else if (this.number == 37) {
+                return this.number;
             }
 
             return 'Too much!';
+        }
+    },
+    watch: {
+        result() {
+            setTimeout(() => {
+                this.number = 0;
+            }, 5000);
         }
     },
     methods: {

@@ -29,6 +29,10 @@
           <div class="healthbar__value" :style="playerBarStyles"></div>
         </div>
       </section>
+      <section v-if="winner" class="container">
+        <h2>Game over!</h2>
+        <h3>{{ whoWinner }}</h3>
+      </section>
       <section id="controls">
         <button @click="attackMonster">ATTACK</button>
         <button :disabled="mayUseSpecialAttack" @click="specialAttackMonster">SPECIAL ATTACK</button>
